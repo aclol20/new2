@@ -4,22 +4,23 @@ async function sendmail(message) {
   try {
     let transporter = nodemailer.createTransport({
       host: "smtp.titan.email",
-      port: 465, // Use 587 if STARTTLS is required
-      secure: true, // Use false if using port 587
+      port: 465, // Use port 465 for SSL/TLS encryption
+      secure: true, // Use true for SSL/TLS encryption
       auth: {
-        user: "i@oxamptrades.online", // Your full email address
+        user: "support@oxamptrades.online", // Your full email address
         pass: "@Ac0706465" // Your email password
       },
       tls: {
-        rejectUnauthorized: false, // Allow self-signed certificates
-        ciphers: 'SSLv3' // Add this if necessary for SSL/TLS
+        rejectUnauthorized: false // Allow self-signed certificates
       },
       logger: true, // Enable logging
       debug: true   // Enable debug mode
     });
 
+    console.log("Transporter configuration:", transporter.options);
+
     let info = await transporter.sendMail({
-      from: 'i@oxamptrades.online', // Sender address
+      from: 'support@oxamptrades.online', // Sender address
       to: "marokemaroke2020@gmail.com", // List of receivers
       subject: "helo", // Subject line
       html: message // HTML body
@@ -28,6 +29,9 @@ async function sendmail(message) {
     console.log("Message sent: %s", info.messageId);
   } catch (error) {
     console.error('Error sending email:', error);
+    if (error.response) {
+      console.error('SMTP Server response:', error.response);
+    }
     throw error;
   }
 }
