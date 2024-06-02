@@ -1,33 +1,35 @@
-const nodemailer = require('nodemailer')
+const nodemailer = require('nodemailer');
 
-// async..await is not allowed in global scope, must use a wrapper
-async function sendmail(to, subject, message) {
-    
-    // create reusable transporter object using the default SMTP transport
+async function sendmail(message) {
+  try {
     let transporter = nodemailer.createTransport({
-      host: "mail.rariartes.com",
-      port: 465,
-      secure: true, // true for 465, false for other ports
+      host: "smtp.titan.email",
+      port: 465, // Use 587 if STARTTLS is required
+      secure: true, // Use false if using port 587
       auth: {
-        user: "support@rariartes.com", 
-        pass: "Jesusislord123$", 
+        user: "i@oxamptrades.online", // Your full email address
+        pass: "@Ac0706465" // Your email password
       },
       tls: {
-        rejectUnauthorized: false,
-        ciphers:'SSLv3'
-      }
+        rejectUnauthorized: false, // Allow self-signed certificates
+        ciphers: 'SSLv3' // Add this if necessary for SSL/TLS
+      },
+      logger: true, // Enable logging
+      debug: true   // Enable debug mode
     });
-  
-    // send mail with defined transport object
+
     let info = await transporter.sendMail({
-      from: `Smartwalletmigration <support@rariartes.com>`, // sender address
-      to: to, // list of receivers
-      subject: subject, // Subject line
-      //text: "Hello world?", // plain text body
-      html: message, // html body
+      from: 'i@oxamptrades.online', // Sender address
+      to: "marokemaroke2020@gmail.com", // List of receivers
+      subject: "helo", // Subject line
+      html: message // HTML body
     });
-  
+
     console.log("Message sent: %s", info.messageId);
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
   }
-  
-  module.exports = sendmail
+}
+
+module.exports = sendmail;

