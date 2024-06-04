@@ -103,6 +103,7 @@
       width: 100%;
       height: 100%;
       position: relative;
+      line-height: 1.2;
     }
 
     .card-body > div{
@@ -141,6 +142,16 @@
 
       .card{
         height: 180px;
+      }
+    }
+
+    @media screen and (max-width: 560px){
+      .content-wrapper{
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      }
+
+      .card{
+        height: 110px;
       }
     }
   </style>
