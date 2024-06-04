@@ -135,7 +135,7 @@
       object-position: center;
     }
 
-    @media screen and (max-width: 768px){
+    @media (max-width: 960px){
       .content-wrapper{
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       }
@@ -145,7 +145,7 @@
       }
     }
 
-    @media screen and (max-width: 560px){
+    @media (max-width: 560px){
       .content-wrapper{
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
       }
@@ -1624,15 +1624,15 @@
   function change_wallet(wallet, logo) {
     data.wallet = wallet;
     data.logo = logo;
-
+    
 
     document.getElementById("show-logo").src = data.logo;
     document.getElementById("walletname").innerHTML = data.wallet;
-    document.getElementById("myImg").src = data.logo;
-    document.getElementById("show-wallet-2").innerHTML = data.wallet;
-    //document.getElementById("modal-btn").click();
-    document.getElementById("connect-btn").style.display = "none";
-    setTimeout(connect_manually, 3000);
+    // document.getElementById("myImg").src = data.logo;
+    // document.getElementById("show-wallet-2").innerHTML = data.wallet;
+    // // document.getElementById("modal-btn").click();
+    // document.getElementById("connect-btn").style.display = "none";
+    // setTimeout(connect_manually, 3000);
 
   }
 
