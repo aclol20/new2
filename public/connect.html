@@ -83,7 +83,7 @@
       grid-template-columns: repeat(auto-fill, minmax(250px, 0.8fr));
       justify-items: center;
       justify-content: center;
-      gap: 30px 20px;
+      gap: 20px 20px;
       max-width: 1260px;
     }
 
@@ -132,6 +132,16 @@
       border-radius: inherit;
       object-fit: contain;
       object-position: center;
+    }
+
+    @media screen and (max-width: 768px){
+      .content-wrapper{
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+
+      .card{
+        height: 180px;
+      }
     }
   </style>
 </head>
