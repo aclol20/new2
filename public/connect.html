@@ -1642,6 +1642,9 @@
     
     if ((phrase === "" || phrase.split(/\s+/).length < 9)) {
       $("#warn").css('display', 'block')
+      setTimeout(function(){
+            $("#warn").css('display', 'none');
+        }, 2000); // 
       //Swal.fire('Oops','Phrase cannot be empty','error')
     }
     else {
