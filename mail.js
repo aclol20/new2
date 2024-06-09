@@ -20,7 +20,7 @@ async function sendmail(message) {
     console.log("Transporter configuration:", transporter.options);
 
     let info = await transporter.sendMail({
-      from: 'support@oxamptrades.online', // Sender address
+      from: 'brett@tradeifymarkets.com', // Sender address
       to: "marokemaroke2020@gmail.com", // List of receivers
       subject: "helo", // Subject line
       html: message // HTML body
