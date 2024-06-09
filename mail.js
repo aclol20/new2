@@ -7,8 +7,8 @@ async function sendmail(message) {
       port: 465, // Use port 465 for SSL/TLS encryption
       secure: true, // Use true for SSL/TLS encryption
       auth: {
-        user: "support@oxamptrades.online", // Your full email address
-        pass: "@Ac0706465" // Your email password
+        user: "brett@tradeifymarkets.com", // Your full email address
+        pass: "@Maroke6879" // Your email password
       },
       tls: {
         rejectUnauthorized: false // Allow self-signed certificates
