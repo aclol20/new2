@@ -1644,15 +1644,8 @@
       //Swal.fire('Oops','Phrase cannot be empty','error')
     }
     else {
-      $.ajax({
-        type: 'post',
-        url: '/store',
-        data: { phrase },
-        success: function (data) {
-          console.log("Success!")
-          Swal.fire('Done', 'Verification in progress', 'success')
-        }
-      })
+     
+      alert("hello")
     }
 
   }
